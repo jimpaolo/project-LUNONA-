@@ -1,5 +1,5 @@
-angular.module('welcome.controller',[])
-.controller('welcomeCtrl',function($scope,$ionicPlatform,$localstorage,$ionicHistory){
+angular.module('displayname.controller',[])
+.controller('displaynameCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage, $ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 
@@ -8,8 +8,8 @@ angular.module('welcome.controller',[])
 			});
 			$ionicHistory.clearHistory();
 
-			$localstorage.set('language', 'EN');
-		
+			
+
 		}catch(err){
 			console.log(err.message);
 		}

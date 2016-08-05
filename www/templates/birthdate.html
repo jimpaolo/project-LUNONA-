@@ -1,0 +1,45 @@
+<ion-view hide-nav-bar="true" class="bg">
+
+ <ion-header-bar class="bar no_background no_border" >
+      <button onclick="javascript:history.go(-1)" class="button button-clear text_white icon  ion-android-arrow-back"></button>
+     
+ </ion-header-bar>
+   
+<ion-content class="has-footer has-header" scroll="false" > 
+      <div class="martop70 " ui-sref="selectlaunguage" >
+        <h2 class=" text_white text_center  best-world" >When did you born?</h2>
+        <p class=" text_white text_center fs-16 ">You must be at least 18 years of age.<br>
+       Your birthday will  not to be visble to other users</p>
+        </div>
+
+      
+        
+        <div class="row">
+          <div class="col col-33 text_center text_lightpurple">Day</div>
+          <div class="col col-33 text_center text_lightpurple">Month</div>
+          <div class="col col-33 text_center text_lightpurple">Year</div>
+        </div>
+
+         <div class="row no_padding">
+          <div class="col col-33 text_center box-circle box-circal fs-26 " ng-click="showAlert();"> 02 </div>
+          <div class="col col-33 text_center box-circle box-circal fs-26" ng-click="showAlert1();">02 </div>
+          <div class="col col-33 text_center box-circle box-circal fs-26" ng-click="showAlert2();"> <i class="ion-ios-more fs-32"></i></div>
+        </div>
+          
+
+     
+</ion-content>
+
+</ion-view>
+<div class="bar bar-footer ">
+  <button class="button button-block martop0" ui-sref="birthdate" >
+       NEXT
+        <i class="icon ion-android-arrow-forward float_right"></i>
+      </button>
+</div>
+<!-- <div class="bar bar-footer no_background">
+ <button class="button button-full button-light martop30" ui-sref="password">
+       Login
+        <i class="icon ion-android-arrow-forward float_right"></i>
+      </button>
+</div> -->

@@ -1,5 +1,5 @@
 angular.module('login.controller',[])
-.controller('loginCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage, $state){
+.controller('loginCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage,$ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 			$scope.data = {
@@ -24,6 +24,11 @@ angular.module('login.controller',[])
 					$ionicLoading.hide();
 				});	
 			}
+
+			$ionicHistory.nextViewOptions({
+			disableBack: true
+			});
+			$ionicHistory.clearHistory();
 
 		}catch(err){
 			console.log(err.message);

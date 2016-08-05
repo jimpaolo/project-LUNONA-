@@ -2,7 +2,7 @@
 @font-face {
   
     font-family: myFirstFont;
-    src: url(../css/font/Roboto-Bold.ttf);
+    src: url('font/Roboto-Regular.ttf');
 }
  
 .bg{
@@ -25,9 +25,9 @@
   color: #a07abb !important;
 }
 
-.text_gray
+.text_lightpurple
 {
-  color: #32CD32 !important;
+  color: #a079ba !important;
 }
 .text_center
 {
@@ -231,9 +231,9 @@ margin-top: 70px !important;
     position: absolute;
     right: 0px !important;
 }
-.best-world{
+*{
 
-  font-family: ' myFirstFont' !important;
+  font-family:'myFirstFont'!important;
 }
 
 .select-lang{
@@ -290,4 +290,48 @@ margin-top: 70px !important;
 
 .martop10{
   margin-top: 10px !important;
+}
+
+.boxmargin{
+  margin: 10px 0px 20px
+}
+
+.box-circle {
+    width: 95% !important;
+    border-radius: 100px !important;
+    border: 4px solid #fff !important;
+    height: 94px !important;
+     background: #eacece !important; 
+    padding: 30px !important;
+    margin: 14px !important;
+    max-width: 26% !important;
+    /* color: transparent; */
+    min-width: 10% !important;
+}
+
+.box-circal {
+    width: 100% !important;
+    border-radius: 100px !important;
+    border: 2px solid #fff !important;
+    background: green;
+   
+}
+
+.popup-body {
+    padding: 79px;
+    overflow: auto;
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+.select_box {
+    width: 88px;
+    height: 88px;
+    border-radius: 100%;
+    background: #3e79ad;
+        margin-top: -35px;
+}
+.linehight{
+  line-height: 10px;
 }

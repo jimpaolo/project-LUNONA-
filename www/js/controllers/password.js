@@ -1,7 +1,13 @@
 angular.module('password.controller',[])
-.controller('passwordCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage, $state){
+.controller('passwordCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading,$ionicHistory, $localstorage, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
+
+			$ionicHistory.nextViewOptions({
+			disableBack: true
+			});
+			$ionicHistory.clearHistory();
+
 			
 			$scope.data = {
 				email: $localstorage.get('username'),

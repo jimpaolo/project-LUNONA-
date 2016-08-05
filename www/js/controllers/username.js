@@ -1,7 +1,12 @@
 angular.module('username.controller',[])
-.controller('usernameCtrl',function($scope,$ionicPlatform, $localstorage, $state){
+.controller('usernameCtrl',function($scope,$ionicPlatform, $localstorage,$ionicHistory, $state){
     $ionicPlatform.ready(function(){
         try{ 
+
+            $ionicHistory.nextViewOptions({
+            disableBack: true
+            });
+            $ionicHistory.clearHistory();
             
             $scope.username = $localstorage.get('loginname');
         	

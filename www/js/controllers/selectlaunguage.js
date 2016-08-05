@@ -1,8 +1,13 @@
 angular.module('selectlaunguage.controller',[])
-.controller('selectlaunguageCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage, $state){
+.controller('selectlaunguageCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage,$ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
+			$ionicHistory.nextViewOptions({
+			disableBack: true
+			});
+			$ionicHistory.clearHistory();
+
 			$scope.langauges = [];
 
 			$scope.loadLanguages = function(){
