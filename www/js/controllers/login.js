@@ -2,10 +2,17 @@ angular.module('login.controller',[])
 .controller('loginCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage,$ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
+
+			$ionicHistory.nextViewOptions({
+			disableBack: true
+			});
+			$ionicHistory.clearHistory();
+
 			$scope.data = {
 				login:'',
 				language: $localstorage.get('language')
 			};
+
 
 			$scope.doLogin = function(){
 				if($scope.data.login==""){
@@ -15,6 +22,8 @@ angular.module('login.controller',[])
 				$ionicLoading.show();
 				var loginURL = API.checkLogin($scope.data.login, $scope.data.language);
 				service.Get(loginURL).then(function (data) {
+					console.log(loginURL);
+					console.log(data);
 					if(data.d.OperationResult=="1"){
 						$localstorage.set('username', $scope.data.login);
 						$state.go('password');
@@ -25,10 +34,7 @@ angular.module('login.controller',[])
 				});	
 			}
 
-			$ionicHistory.nextViewOptions({
-			disableBack: true
-			});
-			$ionicHistory.clearHistory();
+			
 
 		}catch(err){
 			console.log(err.message);

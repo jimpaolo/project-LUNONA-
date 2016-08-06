@@ -1,15 +1,43 @@
 // Ionic Starter App
-angular.module('Lunona', ['ionic', 'welcome.controller','nav.controller','password.controller','password1.controller','country.controller','selectlaunguage.controller','login.controller','username.controller','register.controller','gender.controller','displayname.controller','city.controller','birthdate.controller' ])
+angular.module('Lunona', ['ionic','ngCordova','pascalprecht.translate', 'welcome.controller','nav.controller','password.controller','password1.controller','country.controller','selectlaunguage.controller','login.controller','username.controller','register.controller','gender.controller','displayname.controller','city.controller','birthdate.controller','finish.controller' ])
 
-.run(function($ionicPlatform, $rootScope) {
+.config(function($stateProvider, $urlRouterProvider, $translateProvider, $ionicConfigProvider) {
+     for(lang in translations){
+          $translateProvider.translations(lang, translations[lang]);
+      }
+     $translateProvider.preferredLanguage("EN");
+     $translateProvider.fallbackLanguage("EN");
+
+
+ })
+
+
+.run(function($ionicPlatform, $rootScope, $translate, $location) {
+
   $ionicPlatform.ready(function() {
+
+    $ionicPlatform.registerBackButtonAction(function () {
+        var hashvalue = $location.url();
+        if(hashvalue=="/welcome" || hashvalue=="/register"){
+            navigator.app.exitApp();
+        } else {
+            navigator.app.backHistory();
+        }
+    }, 100);
+
+
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
+
     }
     if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
+
   });
 })
 .factory('$localstorage', ['$window', function($window) {
@@ -110,6 +138,13 @@ angular.module('Lunona', ['ionic', 'welcome.controller','nav.controller','passwo
     cache:false,
     templateUrl: 'templates/birthdate.html',
     controller: 'birthdateCtrl'
+  })
+
+  .state('finish', {
+    url: '/finish',
+    cache:false,
+    templateUrl: 'templates/finish.html',
+    controller: 'finishCtrl'
   })
   ;
 

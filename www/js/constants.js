@@ -15,5 +15,15 @@ angular.module('Lunona').constant("API",{
 	},
 	doLogin:function(){
 		return this.frontURL+"LogInUser";
-	}
+	},
+	loginnamesuggestions:function(){
+		return this.frontURL+"GetNewLoginNameSuggestions";
+	},
+	getcountries:function(){
+		return this.frontURL+"GetCountries";
+	},
+	getstates:function(){
+		return this.frontURL+"GetStates?Country="+state;
+	},
+
 });

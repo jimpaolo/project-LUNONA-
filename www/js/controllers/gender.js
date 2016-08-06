@@ -8,6 +8,24 @@ angular.module('gender.controller',[])
 			});
 			$ionicHistory.clearHistory();
 
+
+			$scope.select={};
+			$scope.select.gender="";
+
+
+			$scope.Gonext = function(){
+				if($scope.select.gender==""){
+					alert("Please Select Gender");
+					return false;
+				}else{
+					var gender=$scope.select.gender;
+						console.log(gender);
+					$localstorage.set("GenderID", gender);	
+					$state.go("displayname");
+
+				}				
+			}
+
 			
 
 		}catch(err){

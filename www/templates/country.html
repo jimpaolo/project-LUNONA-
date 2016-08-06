@@ -17,17 +17,12 @@
 
             <label class="item item-input item-select no_background border_bottom" >
                 <div class="input-label no_background   text_white">
-                <img class="float_left " src="img/EN.png" width="20%">&nbsp;
-                  United Kingdom
+                <!-- <img class="float_left " src="img/EN.png" width="20%">&nbsp; -->
+                  <!-- United Kingdom -->
                 </div>
-                <select class="dropdown100 no_background" >
-                  <option></option>
-                  <option ><img class="float_left " src="img/EN.png" width="20%">&nbsp;
-                  United States</option>
-                  <option ><img class="float_left " src="img/EN.png" width="20%">&nbsp;
-                  United States</option>
-                  <option ><img class="float_left " src="img/EN.png" width="20%">&nbsp;
-                  United States</option>
+                <select class="dropdown100 no_background text_white" ng-model="select.getcountry">
+                  <option class="text_black" value=""> Select Country</option>
+                  <option ng-repeat="post in countrylist " class="text_black" value="{{post}}"> {{post}}</option>
                   
                 </select>
               </label>
@@ -41,7 +36,7 @@
 
 </ion-view>
 <div class="bar bar-footer ">
-  <button class="button button-block martop0" ui-sref="city" >
+  <button class="button button-block martop0" ng-click="Gonext();" >
        NEXT
         <i class="icon ion-android-arrow-forward float_right"></i>
       </button>

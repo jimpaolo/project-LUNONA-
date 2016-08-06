@@ -1,5 +1,5 @@
 angular.module('register.controller',[])
-.controller('registerCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage, $ionicHistory, $state){
+.controller('registerCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage,$ionicPopup, $ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 
@@ -8,28 +8,38 @@ angular.module('register.controller',[])
 			});
 			$ionicHistory.clearHistory();
 
-			// $scope.data = {
-			// 	login:'',
-			// 	language: $localstorage.get('language')
-			// };
+			$scope.Register = {
+				email:'',
+				language: $localstorage.get('language')
+			};
 
-			// $scope.doLogin = function(){
-			// 	if($scope.data.login==""){
-			// 		alert("Username is required.");
-			// 		return false;
-			// 	}
-			// 	$ionicLoading.show();
-			// 	var loginURL = API.checkLogin($scope.data.login, $scope.data.language);
-			// 	service.Get(loginURL).then(function (data) {
-			// 		if(data.d.OperationResult=="1"){
-			// 			$localstorage.set('username', $scope.data.login);
-			// 			$state.go('password');
-			// 		}else{
-			// 			alert(data.d.DataValue);
-			// 		}
-			// 		$ionicLoading.hide();
-			// 	});	
-			// }
+
+			$scope.Gonext = function(){
+				if($scope.Register.email==""){
+					alert("Enter Email Or Nick Name");
+					return false;
+				}else{
+					$ionicLoading.show();
+					var loginURL = API.checkLogin($scope.Register.email, $scope.Register.language);
+					service.Get(loginURL).then(function (data) {
+						if(data.d.OperationResult == "1" || data.d.OperationResult == "1" == true){
+	                  		$scope.getdata=data.d;
+	                  		console.log($scope.getdata);
+	                  		$localstorage.set("LoginName",$scope.getdata.DataValue);
+	                  		$state.go("password1");
+	                  		$ionicLoading.hide();
+	                  		
+	                  	}else{
+	                  		$scope.showerroe=data.d;
+	                  		console.log($scope.showerroe);
+	                  		$ionicLoading.hide();
+	                  	} 
+					});	
+				
+
+				}
+				
+			}
 
 		}catch(err){
 			console.log(err.message);

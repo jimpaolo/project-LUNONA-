@@ -8,12 +8,14 @@
       <p class="text_center text_white fs-14 best-world">This name will appear on your public profile </p>
       <div class=" card no_background  martop50">
      
-          <a class="item  no_background border_bottom text_white item-icon-right" href="#">
+          <a class="item  no_background border_bottom text_white item-icon-right">
     
-            Andre
-            <i class="icon ion-checkmark-circled"></i>
+            <!-- Andre -->{{choosename}}
+            <i ng-if="showerror!='0'" class="icon ion-checkmark-circled"></i>
+            <i ng-if="showerror=='0'" class="icon ion-close-circled"></i>
           </a>
-          <p class="text_lightpurple fs-16">THis NickName is available</p>
+          <p ng-if="showerror!='0'" class="text_lightpurple fs-16 martop10">THis NickName is available</p>
+          <p ng-if="showerror=='0'" class="text_lightpurple fs-16 martop10 text_assertive">THis NickName is Not available</p>
         
       </div>
     </div>
