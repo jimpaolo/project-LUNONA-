@@ -1,5 +1,5 @@
 angular.module('selectlaunguage.controller',[])
-.controller('selectlaunguageCtrl',function($scope,$ionicPlatform, API, service,$translate, $ionicLoading, $localstorage,$ionicHistory, $state){
+.controller('selectlaunguageCtrl',function($scope,$ionicPlatform, API, service,$translate, $ionicLoading, $localstorage,$ionicHistory, $state, $translate){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
@@ -26,8 +26,13 @@ angular.module('selectlaunguage.controller',[])
 			$scope.loadLanguages();
 
 			$scope.selectValue = function(lang){
-				$localstorage.set('language', lang);
-		        $state.go('welcome');
+				$translate.use(lang).then(function(data) {
+			        $localstorage.set('language', lang);
+			        $state.go('welcome');
+			    }, function(error) {
+			        console.log("ERROR -> " + error);
+			        $state.go('welcome');
+			    });
 			}
 		
 		}catch(err){

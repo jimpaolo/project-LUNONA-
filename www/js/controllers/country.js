@@ -1,5 +1,5 @@
 angular.module('country.controller',[])
-.controller('countryCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicLoading,service,API,$state){
+.controller('countryCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicLoading,service,API,$state,$localstorage){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
@@ -33,6 +33,7 @@ angular.module('country.controller',[])
 				if ($scope.select.getcountry==""){
 					alert("Select Country");
 				}else{
+					$localstorage.set("country_nm",countname);
 					$state.go("city");
 				}
 				

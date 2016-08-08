@@ -16,6 +16,12 @@ angular.module('Lunona', ['ionic','ngCordova','pascalprecht.translate', 'welcome
 
   $ionicPlatform.ready(function() {
 
+    var langauge = localStorage.getItem('language');
+    $translate.use(langauge).then(function(data) {
+    }, function(error) {
+        console.log("ERROR -> " + error);
+    });
+
     $ionicPlatform.registerBackButtonAction(function () {
         var hashvalue = $location.url();
         if(hashvalue=="/welcome" || hashvalue=="/register"){

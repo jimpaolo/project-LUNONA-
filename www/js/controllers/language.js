@@ -1,6 +1,6 @@
 var translations = {
      "EN": {
-         "translate_text"    : "Englist",
+         "translate_text"    : "English",
          "Vivek"             : "Vivek English"
     },
      "DE": {

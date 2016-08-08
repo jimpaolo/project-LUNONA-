@@ -22,7 +22,7 @@ angular.module('Lunona').constant("API",{
 	getcountries:function(){
 		return this.frontURL+"GetCountries";
 	},
-	getstates:function(){
+	getstates:function(state){
 		return this.frontURL+"GetStates?Country="+state;
 	},
 
