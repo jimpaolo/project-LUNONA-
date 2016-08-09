@@ -8,6 +8,21 @@ angular.module('gender.controller',[])
 			});
 			$ionicHistory.clearHistory();
 
+			$scope.myFunction=function(){
+				document.getElementById("myDIV").style.backgroundColor = "#fff";
+				document.getElementById("myDIV").style.color = "#5a267b";
+				document.getElementById("myDIV1").style.backgroundColor = "transparent";
+				document.getElementById("myDIV1").style.color = "#fff";
+
+			}
+			$scope.myFunction1=function(){
+				document.getElementById("myDIV1").style.backgroundColor = "#fff";
+				document.getElementById("myDIV1").style.color = "#5a267b";
+				document.getElementById("myDIV").style.backgroundColor = "transparent";
+				document.getElementById("myDIV").style.color = "#fff";
+
+			}
+
 
 			$scope.select={};
 			$scope.select.gender="";

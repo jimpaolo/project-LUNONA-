@@ -16,7 +16,7 @@ angular.module('Lunona').constant("API",{
 	doLogin:function(){
 		return this.frontURL+"LogInUser";
 	},
-	loginnamesuggestions:function(){
+	loginnamesuggestions:function(name){
 		return this.frontURL+"GetNewLoginNameSuggestions";
 	},
 	getcountries:function(){
@@ -25,5 +25,18 @@ angular.module('Lunona').constant("API",{
 	getstates:function(state){
 		return this.frontURL+"GetStates?Country="+state;
 	},
+	// getcityusingstate:function(country, state){
+	// 	return this.frontURL+"GetCitiesAndZip?country="+country+"&StateISO="+state;
+	// },
+	getcity:function(country){
+		return this.frontURL+"GetCitiesAndZip?country="+country;
+	},
+	getdateofbirth:function(year,month,date){
+		return this.frontURL+"MakeDateValid?Year="+year+"&Month="+month+"&Day="+date;
+	},
+	postdata:function(){
+		return this.frontURL+"registerNewUser";
+	},
+	
 
 });

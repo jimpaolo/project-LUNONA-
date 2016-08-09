@@ -17,30 +17,31 @@
           </div>
 
 
-          <div  class=" woman" > 
+         <!--  <div  class=" woman" > 
+          <button class=" button-clear" style="width:100%;border:0px solid #fff; ">
           <input type="radio" name="r1" value="1"  ng-model="select.gender" class="fs-16 radiobox"> &nbsp;
-          <strong ui-sref="register">Man</strong> and i'm looking for a woman
+          <strong >Man</strong> and i'm looking for a woman
+          </button>
           </div>  
           <div class="row"></div>
 
-          <div  class=" woman1" > 
+          <div  class=" woman1 active" > 
+          <button class=" button-clear" style="width:100%;border:0px solid #fff; ">
           <input type="radio" name="r1" value="2" ng-model="select.gender" class="fs-16 radiobox">&nbsp;
-          <strong ui-sref="register">Woman</strong> and i'm looking for a man
+          <strong >Woman</strong> and i'm looking for a man
+          </button>
+          </div> -->
+
+          <div  class="woman1 text_center" id="myDIV" > 
+          <input type="radio" name="r1" value="1"  ng-model="select.gender" class="fs-16 radiobox" ng-click="myFunction()" > &nbsp;
+          <strong >Man</strong> and i'm looking for a woman
+          </div> 
+
+          <div  class=" woman1 active text_center" id="myDIV1">
+          <input type="radio" name="r1" value="2" ng-model="select.gender" class="fs-16 radiobox" ng-click="myFunction1()">&nbsp;
+          <strong >Woman</strong> and i'm looking for a man
           </div>
-         <!--  <ion-list>
-            <ion-radio ng-model="choice" ng-value="'A'">Choose A</ion-radio>
-            <ion-radio class=" woman" ng-model="choice" ng-value="'B'">Choose B</ion-radio>
-          </ion-list>
- -->
-          <!-- <ion-list>
-
-            <ion-checkbox ng-model="filter.red">Man and i'm looking for a woman</ion-checkbox>
-            <div class="row"></div>
-            <ion-checkbox class=" woman" ng-model="filter.yellow">Woman and i'm looking for a man</ion-checkbox>
-
-
-          </ion-list>
- -->
+        
 
       <!-- <div  class=" text_center" ui-sref="register">
         <img src="img/gender_10.png" width="100%">

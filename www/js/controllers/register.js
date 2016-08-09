@@ -16,7 +16,7 @@ angular.module('register.controller',[])
 
 			$scope.Gonext = function(){
 				if($scope.Register.email==""){
-					alert("Enter Email Or Nick Name");
+					alert("Enter Email ");
 					return false;
 				}else{
 					$ionicLoading.show();

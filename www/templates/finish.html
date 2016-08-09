@@ -17,8 +17,8 @@
            
             <a class="item item-icon-left no_background item-icon-right text_white f-bold fullcircle" href="#">
                <img  class="float_left" src="img/finish_03.png" width="12%">&nbsp;
-              andrefilipps@gmail.com
-              <i class="icon ion-edit text_black"></i>
+              <!-- andrefilipps@gmail.com -->{{loginemail}}
+              <i class="icon ion-edit text_black" ui-sref="register"></i>
             </a>
       </div>
 
@@ -31,8 +31,10 @@
            
             <a class="item item-icon-left no_background item-icon-right text_white f-bold fullcircle" href="#">
               <img class="float_left" src="img/finish_07.png" width="15%">&nbsp;
-              Man and i'm looking for a woman
-              <i class="icon ion-edit text_black"></i>
+              <span ng-if="gender=='1'">Man and i'm looking for a woman</span>
+              <span ng-if="gender=='2'">Woman and i'm looking for a man</span>
+              
+              <i class="icon ion-edit text_black" ui-sref="gender"></i>
             </a>
         </div>
 
@@ -45,8 +47,8 @@
            
             <a class="item item-icon-left no_background item-icon-right text_white f-bold fullcircle" href="#">
               <img class="float_left" src="img/finish_10.png" width="10%">&nbsp;
-              Andrefilipp
-              <i class="icon ion-edit text_black"></i>
+             <!--  Andrefilipp --> {{nickname}}
+              <i class="icon ion-edit text_black" ui-sref="displayname"></i>
             </a>
         </div>
 
@@ -59,8 +61,8 @@
            
             <a class="item item-icon-left no_background item-icon-right text_white f-bold fullcircle" href="#">
               <img class="float_left" src="img/EN.png" width="12%">&nbsp;
-              United Kingdom , London
-              <i class="icon ion-edit text_black"></i>
+              <!-- United Kingdom , London --> {{countryname}}
+              <i class="icon ion-edit text_black" ui-sref="country"></i>
             </a>
         </div>
 
@@ -73,8 +75,8 @@
            
             <a class="item item-icon-left no_background item-icon-right text_white f-bold fullcircle" href="#">
               <img class="float_left"  src="img/finish_14.png" width="12%">&nbsp;
-              2/2/1987 - 26 Years Old
-              <i class="icon ion-edit text_black"></i>
+              <!-- 2/2/1987 - 26 Years Old --> {{day}}/{{month}}/{{year}}
+              <i class="icon ion-edit text_black" ui-sref="birthdate"></i>
             </a>
       </div>
 
@@ -86,7 +88,7 @@
     <br>
     <br>
   </ion-content>
-  <div class="bar bar-footer no_padding footer-bg footer-height" ui-sref="login">
-    <img src="img/done_02.png" width="100%" >
+  <div class="bar bar-footer no_padding footer-bg footer-height" ng-click="Register();">
+    <img src="img/doneimg.png" width="100%"  >
   </div>
 </ion-view>

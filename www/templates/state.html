@@ -7,8 +7,8 @@
    
 <ion-content class="has-footer has-header" scroll="false" > 
       <div class="martop70 " ui-sref="selectlaunguage" >
-        <h2 class=" text_white text_center  best-world" >Your City</h2>
-        <p class=" text_white text_center martop-13 fs-16 ">City  you live in Postal code</p>
+        <h2 class=" text_white text_center  best-world" >Your State</h2>
+        <p class=" text_white text_center martop-13 fs-16 ">State Where you are</p>
         </div>
 
         <div class="card no_background martop50">
@@ -17,22 +17,16 @@
 
             <label class="item item-input item-select no_background border_bottom" >
                 <div class="input-label no_background   text_white">
-                <!-- <img class="float_left " src="img/gender_05_03.png" width="20%">&nbsp;
-                 London -->
+                <!-- <img class="float_left " src="img/EN.png" width="20%">&nbsp; -->
+                  <!-- United Kingdom -->
                 </div>
-                <select class="dropdown100 no_background text_white" ng-model="select.city">
-                  <option value="">Select City</option>
-                  <option class="text_black" ng-repeat="post in citylist track by $index" value="{{post}}">
-                  {{post}}</option>
-                 <!--  <option ><img class="float_left " src="img/EN.png" width="20%">&nbsp;
-                  United States</option>
-                  <option ><img class="float_left " src="img/EN.png" width="20%">&nbsp;
-                  United States</option> -->
+                <select class="dropdown100 no_background text_white" ng-model="select.state">
+                  <option class="text_black" value=""> Select State</option>
+                  <option ng-repeat="post in statelist " class="text_black" value="{{post}}"> {{post}}</option>
                   
                 </select>
               </label>
-                 
-                  
+
 
           </div>
 
@@ -42,7 +36,7 @@
 
 </ion-view>
 <div class="bar bar-footer ">
-  <button class="button button-block martop0" ng-click="Gonext();">
+  <button class="button button-block martop0" ng-click="Gonext();" >
        NEXT
         <i class="icon ion-android-arrow-forward float_right"></i>
       </button>

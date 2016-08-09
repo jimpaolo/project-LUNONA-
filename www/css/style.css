@@ -410,3 +410,27 @@ margin-top: 70px !important;
 .marbottom-10{
   margin-bottom: -10px;
 }
+
+#myDIV {
+  background: transparent;
+   /* background-color: coral;
+    color: white;*/
+}
+
+.divbg
+{
+  background: #fff !important;
+  color: #000;
+}
+.width100
+{
+  width: 100% !important;
+}
+.textboxdate
+{
+  min-width: 50px !important;
+  max-width: 50px !important;
+  margin-left: -15px !important;
+  background-color: transparent;
+  text-align: center !important;
+}

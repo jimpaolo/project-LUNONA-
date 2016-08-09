@@ -10,19 +10,24 @@
      
           <a class="item  no_background border_bottom text_white item-icon-right">
     
-            <!-- Andre -->{{choosename}}
-            <i ng-if="showerror!='0'" class="icon ion-checkmark-circled"></i>
-            <i ng-if="showerror=='0'" class="icon ion-close-circled"></i>
+            <!-- Andre --><!-- {{choosename}} -->
+            <input class="float_left no_background maxminwidth100 marginleft5 input-white" type="text" ng-model="name.nickname" placeholder="Enter Nick Name">
+            <i ng-if="getdata.OperationResult=='0'" class="icon ion-checkmark-circled"></i>
+            <i ng-if="showerroe.OperationResult=='1'"  class="icon ion-close-circled"></i>
           </a>
-          <p ng-if="showerror!='0'" class="text_lightpurple fs-16 martop10">THis NickName is available</p>
-          <p ng-if="showerror=='0'" class="text_lightpurple fs-16 martop10 text_assertive">THis NickName is Not available</p>
+          <p ng-if="getdata.OperationResult=='0'" class="text_lightpurple fs-16 martop10">This Nick Name is available</p>
+          <p ng-if="showerroe.OperationResult=='1'"  class="text_lightpurple fs-16 martop10 text_assertive">This Nick Name is Not available</p>
         
       </div>
     </div>
   </ion-content>
   <div class="bar bar-footer ">
-    <button class="button button-block martop0 best-world" ui-sref="country"   ><!-- ng-click="doLogin();" -->
+    <button ng-hide="Nexthide" class="button button-block martop0 best-world"  ng-click="Gonext();">
     NEXT
+    <i class="icon ion-android-arrow-forward float_right"></i>
+    </button>
+    <button  ng-hide="checkhide"  class="button button-block martop0 best-world" ng-click="Gocheck();">
+    Check Name
     <i class="icon ion-android-arrow-forward float_right"></i>
     </button>
   </div>

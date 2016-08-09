@@ -32,7 +32,12 @@ angular.module('country.controller',[])
 				console.log(countname);
 				if ($scope.select.getcountry==""){
 					alert("Select Country");
-				}else{
+					return false;
+				}if($scope.select.getcountry=="United States"){
+					$localstorage.set("country_nm",countname);
+					$state.go("state");
+				}
+				else{
 					$localstorage.set("country_nm",countname);
 					$state.go("city");
 				}
