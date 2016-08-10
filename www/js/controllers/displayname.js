@@ -68,26 +68,17 @@ angular.module('displayname.controller',[])
 			// $scope.choosename=$localstorage.get("LoginName");
 			// 	console.log($scope.choosename);
 
-			// $scope.name={};
-			// $scope.name.nickname="";
-
 
 			// $scope.loadnamesugget= function(){
 			// 	$ionicLoading.show();
-			// 	var namesugg = API.loginnamesuggestions($scope.choosename);
+			// 	var namesugg = API.loginnamesuggestions($scope.name.nickname);
 			// 	service.Get(namesugg).then(function (data) {
 			// 		console.log(namesugg);
-			// 		if(data.d.OperationResult=="1" || data.d.OperationResult==1){
-			// 			$scope.getdata = data.d;
-			// 			console.log($scope.getdata);
-			// 			$scope.showerror="";
-			// 		}else{
-			// 			$scope.showerror=data.OperationResult;
-			// 		}
+			// 		$scope.getdata=data.d.DataValue;
+			// 		console.log($scope.getdata);
 			// 		$ionicLoading.hide();
 			// 	});	
 			// }
-			// $scope.loadnamesugget();
 
 			
 
