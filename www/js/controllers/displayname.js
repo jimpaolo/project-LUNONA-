@@ -1,5 +1,5 @@
 angular.module('displayname.controller',[])
-.controller('displaynameCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage, $ionicHistory, $state){
+.controller('displaynameCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage,$ionicPopup, $ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 
@@ -26,8 +26,17 @@ angular.module('displayname.controller',[])
 
 			$scope.Gocheck = function(){
 				if($scope.name.nickname==""){
-					alert("Enter Nick Name");
-					return false;
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Enter Nick Name'
+		            });
+		            return false;
+				}if($scope.name.nickname.length<=3){
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Nick Name Too short'
+		            });
+		            return false;
 				}else{
 					$ionicLoading.show();
 					var loginURL = API.checkLogin($scope.name.nickname, $scope.name.language);

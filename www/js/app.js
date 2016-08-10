@@ -1,5 +1,5 @@
 // Ionic Starter App
-angular.module('Lunona', ['ionic','ngCordova','ion-pickers','pascalprecht.translate', 'welcome.controller','nav.controller','password.controller','password1.controller','country.controller','selectlaunguage.controller','login.controller','username.controller','register.controller','gender.controller','displayname.controller','city.controller','birthdate.controller','finish.controller' ,'state.controller'])
+angular.module('Lunona', ['ionic','ngCordova','ion-pickers','pascalprecht.translate', 'welcome.controller','nav.controller','password.controller','password1.controller','country.controller','selectlaunguage.controller','login.controller','username.controller','register.controller','gender.controller','displayname.controller','city.controller','birthdate.controller','finish.controller' ,'state.controller','city1.controller'])
 
 .config(function($stateProvider, $urlRouterProvider, $translateProvider, $ionicConfigProvider) {
      for(lang in translations){
@@ -157,6 +157,12 @@ angular.module('Lunona', ['ionic','ngCordova','ion-pickers','pascalprecht.transl
     cache:false,
     templateUrl: 'templates/state.html',
     controller: 'stateCtrl'
+  })
+   .state('city1', {
+    url: '/city1',
+    cache:false,
+    templateUrl: 'templates/city1.html',
+    controller: 'city1Ctrl'
   })
   ;
 

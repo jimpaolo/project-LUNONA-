@@ -1,5 +1,5 @@
 angular.module('city.controller',[])
-.controller('cityCtrl',function($scope,$ionicPlatform,$ionicHistory,API, service, $ionicLoading, $localstorage,$state){
+.controller('cityCtrl',function($scope,$ionicPlatform,$ionicHistory,API, service, $ionicLoading,$ionicPopup, $localstorage,$state){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
@@ -38,7 +38,10 @@ angular.module('city.controller',[])
 				var cityname=$scope.select.city;
 				console.log(cityname);
 				if ($scope.select.city==""){
-					alert("Please Select City");
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Please Select City'
+		            });
 					return false;
 				}else{
 					$localstorage.set("City",cityname);

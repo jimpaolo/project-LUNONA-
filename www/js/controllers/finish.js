@@ -33,14 +33,14 @@ angular.module('finish.controller',[])
 								"Country":$scope.countryname,
 								"Region":$scope.state,
 								"City":$scope.city,
-								"Zip":"00957",
+								"Zip":"",
 								"GenderID":$scope.gender,
 								"Day":$scope.day,
 								"Month":$scope.month,
 								"Year":$scope.year
 								},
-									"proposedCountry":"Greece",
-									"proposedCity":"Athens"
+									"proposedCountry":$scope.countryname,
+									"proposedCity":$scope.city
 							}
 				dataset=JSON.stringify(dataset);
 				service.Post(url,dataset).then(function (data) {

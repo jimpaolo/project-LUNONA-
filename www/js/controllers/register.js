@@ -15,9 +15,12 @@ angular.module('register.controller',[])
 
 
 			$scope.Gonext = function(){
-				if($scope.Register.email==""){
-					alert("Enter Email ");
-					return false;
+				if($scope.Register.email=="" || $scope.Register.email=="undefined" || $scope.Register.email==undefined){
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Enter Valid Email'
+		            });
+		            return false;
 				}else{
 					$ionicLoading.show();
 					var loginURL = API.checkLogin($scope.Register.email, $scope.Register.language);
@@ -32,6 +35,10 @@ angular.module('register.controller',[])
 	                  	}else{
 	                  		$scope.showerroe=data.d;
 	                  		console.log($scope.showerroe);
+	                  		$ionicPopup.alert({
+					            title : 'Warning',
+					            template: 'This Email Already Exist'
+					            });
 	                  		$ionicLoading.hide();
 	                  	} 
 					});	

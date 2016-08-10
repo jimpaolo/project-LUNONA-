@@ -1,5 +1,5 @@
 angular.module('password.controller',[])
-.controller('passwordCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading,$ionicHistory, $localstorage, $state){
+.controller('passwordCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading,$ionicHistory,$ionicPopup, $localstorage, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 
@@ -19,7 +19,10 @@ angular.module('password.controller',[])
 			$scope.doLogin = function(){
 
 				if($scope.data.password==""){
-					alert("Password is required.");
+					$ionicPopup.alert({
+		            title : 'Login',
+		            template: 'Password is required'
+		            });
 					return false;
 				}
 				var loginURL = API.doLogin();
@@ -31,7 +34,11 @@ angular.module('password.controller',[])
 				$ionicLoading.show();
 				service.Post(loginURL, dataset).then(function (data) {
 					if(data.d.OperationResult=="0" || data.d.OperationResult==0){
-						alert(data.d.DataValue);
+						// alert(data.d.DataValue);
+						$ionicPopup.alert({
+			            title : 'Login',
+			            template: 'Password Not Match'
+			            });
 					}else{
 						
 						$localstorage.set('isLogin', '1');

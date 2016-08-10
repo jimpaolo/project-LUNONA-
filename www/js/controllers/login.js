@@ -1,5 +1,5 @@
 angular.module('login.controller',[])
-.controller('loginCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage,$ionicHistory, $state){
+.controller('loginCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading,$ionicPopup, $localstorage,$ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 
@@ -16,7 +16,10 @@ angular.module('login.controller',[])
 
 			$scope.doLogin = function(){
 				if($scope.data.login==""){
-					alert("Username is required.");
+					$ionicPopup.alert({
+		            title : 'Login',
+		            template: 'Username is required'
+		            });
 					return false;
 				}
 				$ionicLoading.show();

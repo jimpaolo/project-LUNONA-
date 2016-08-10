@@ -1,5 +1,5 @@
 angular.module('password1.controller',[])
-.controller('password1Ctrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage,$ionicHistory, $state){
+.controller('password1Ctrl',function($scope,$ionicPlatform, API, service, $ionicLoading,$ionicPopup, $localstorage,$ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 
@@ -23,9 +23,19 @@ angular.module('password1.controller',[])
 
 			$scope.Gonext = function(){
 				if($scope.data.password==""){
-					alert("Enter Password");
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Please Enter Password'
+		            });
 					return false;
-				}else{
+				}if($scope.data.password.length<=3){
+						$ionicPopup.alert({
+			            title : 'Warning',
+			            template: 'Password Too Short'
+			            });
+						return false;
+	          	}
+				else{
 					var getpassword=$scope.data.password;
 						console.log(getpassword);
 					$localstorage.set("Password", getpassword);	

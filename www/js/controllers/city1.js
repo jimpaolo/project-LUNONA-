@@ -1,5 +1,5 @@
-angular.module('state.controller',[])
-.controller('stateCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicLoading,service,API,$ionicPopup,$state,$localstorage){
+angular.module('city1.controller',[])
+.controller('city1Ctrl',function($scope,$ionicPlatform,$ionicHistory,API, service, $ionicLoading, $localstorage,$ionicPopup,$state){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
@@ -8,18 +8,20 @@ angular.module('state.controller',[])
 			});
 			$ionicHistory.clearHistory();
 
-			$scope.countnm=$localstorage.get("country_nm");
+		$scope.countnm=$localstorage.get("country_nm");
 			console.log($scope.countnm);
+		$scope.state=$localstorage.get("Region");
+			console.log($scope.state);
 
 
 			$scope.loaddata= function(){
 				$ionicLoading.show();
-				var namesugg = API.getstates($scope.countnm);
+				var namesugg = API.getcityusingstate($scope.countnm,$scope.state);
 				service.Get(namesugg).then(function (data) {
 					console.log(namesugg);
 					if(data.d.OperationResult=="1" || data.d.OperationResult==1){
-						$scope.statelist = data.d.Strings;
-						console.log($scope.statelist);
+						$scope.citylist = data.d.Strings;
+						console.log($scope.citylist);
 						$ionicLoading.hide();
 					}else{
 					}
@@ -30,20 +32,20 @@ angular.module('state.controller',[])
 
 
 			$scope.select={};
-			$scope.select.state="";
+			$scope.select.city="";
 
 			$scope.Gonext=function(){
-				var statename=$scope.select.state;
-				console.log(statename);
-				if ($scope.select.state==""){
+				var cityname=$scope.select.city;
+				console.log(cityname);
+				if ($scope.select.city==""){
 					$ionicPopup.alert({
 		            title : 'Warning',
-		            template: 'Please Select State'
+		            template: 'Please Select City'
 		            });
 					return false;
 				}else{
-					$localstorage.set("Region",statename);
-					$state.go("city1");
+					$localstorage.set("City",cityname);
+					$state.go("birthdate");
 				}
 				
 			}

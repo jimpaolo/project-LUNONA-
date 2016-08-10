@@ -1,5 +1,5 @@
 angular.module('gender.controller',[])
-.controller('genderCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage, $ionicHistory, $state){
+.controller('genderCtrl',function($scope,$ionicPlatform, API, service, $ionicLoading, $localstorage, $ionicPopup,$ionicHistory, $state){
 	$ionicPlatform.ready(function(){
 		try{ 
 
@@ -30,8 +30,11 @@ angular.module('gender.controller',[])
 
 			$scope.Gonext = function(){
 				if($scope.select.gender==""){
-					alert("Please Select Gender");
-					return false;
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Please Select Gender'
+		            });
+		            return false;
 				}else{
 					var gender=$scope.select.gender;
 						console.log(gender);

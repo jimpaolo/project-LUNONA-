@@ -25,9 +25,11 @@ angular.module('Lunona').constant("API",{
 	getstates:function(state){
 		return this.frontURL+"GetStates?Country="+state;
 	},
-	// getcityusingstate:function(country, state){
-	// 	return this.frontURL+"GetCitiesAndZip?country="+country+"&StateISO="+state;
-	// },
+
+	getcityusingstate:function(country, state){
+		return this.frontURL+"GetCitiesAndZip?country="+country+"&StateISO="+state;
+	},
+	
 	getcity:function(country){
 		return this.frontURL+"GetCitiesAndZip?country="+country;
 	},

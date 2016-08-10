@@ -1,5 +1,5 @@
 angular.module('country.controller',[])
-.controller('countryCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicLoading,service,API,$state,$localstorage){
+.controller('countryCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicPopup,$ionicLoading,service,API,$state,$localstorage){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
@@ -31,7 +31,10 @@ angular.module('country.controller',[])
 				var countname=$scope.select.getcountry;
 				console.log(countname);
 				if ($scope.select.getcountry==""){
-					alert("Select Country");
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Select Country'
+		            });
 					return false;
 				}if($scope.select.getcountry=="United States"){
 					$localstorage.set("country_nm",countname);

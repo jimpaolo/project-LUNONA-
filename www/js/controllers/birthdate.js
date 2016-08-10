@@ -123,13 +123,22 @@ angular.module('birthdate.controller',[])
 				var month=$scope.data.month;
 				var year=$scope.data.year;
 				if ($scope.data.date==""){
-					alert("Please Select Date");
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Please Select Date'
+		            });
 					return false;
 				}if($scope.data.month==""){
-					alert("Please Select Month");
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Please Select Month'
+		            });
 					return false;
 				}if($scope.data.year==""){
-					alert("Please Select Year");
+					$ionicPopup.alert({
+		            title : 'Warning',
+		            template: 'Please Select Year'
+		            });
 					return false;
 				}else{
 					$ionicLoading.show();

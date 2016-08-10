@@ -7,8 +7,8 @@
    
 <ion-content class="has-footer has-header" scroll="false" > 
       <div class="martop70 " ui-sref="selectlaunguage" >
-        <h2 class=" text_white text_center  best-world" >Your State</h2>
-        <p class=" text_white text_center martop-13 fs-16 ">State Where you are</p>
+        <h2 class=" text_white text_center  best-world" >{{"Your_State" | translate}}</h2>
+        <p class=" text_white text_center martop-13 fs-16 ">{{"State_Where_you_are" | translate}}</p>
         </div>
 
         <div class="card no_background martop50">
@@ -21,7 +21,7 @@
                   <!-- United Kingdom -->
                 </div>
                 <select class="dropdown100 no_background text_white" ng-model="select.state">
-                  <option class="text_black" value=""> Select State</option>
+                  <option class="text_black" value=""> {{"Select_State" | translate}}</option>
                   <option ng-repeat="post in statelist " class="text_black" value="{{post}}"> {{post}}</option>
                   
                 </select>
@@ -37,7 +37,7 @@
 </ion-view>
 <div class="bar bar-footer ">
   <button class="button button-block martop0" ng-click="Gonext();" >
-       NEXT
+       {{"NEXT" | translate}}
         <i class="icon ion-android-arrow-forward float_right"></i>
       </button>
 </div>
