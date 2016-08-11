@@ -13,12 +13,9 @@
 
         <div class="card no_background martop50">
         
-          <div>
-
+          <!-- <div>
             <label class="item item-input item-select no_background border_bottom" >
                 <div class="input-label no_background   text_white">
-                <!-- <img class="float_left " src="img/EN.png" width="20%">&nbsp; -->
-                  <!-- United Kingdom -->
                 </div>
                 <select class="dropdown100 no_background text_white" ng-model="select.state">
                   <option class="text_black" value=""> {{"Select_State" | translate}}</option>
@@ -26,8 +23,9 @@
                   
                 </select>
               </label>
-
-
+          </div> -->
+          <div class="border_bottom no_background">
+            <input class="maxminwidth100 no_background text_white paddingleft10" type="text" ng-model="select.state" placeholder="{{'Select_State' | translate}}" ng-click="openModal();" readonly>
           </div>
 
         </div>

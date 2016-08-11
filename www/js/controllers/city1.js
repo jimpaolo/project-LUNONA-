@@ -1,5 +1,5 @@
 angular.module('city1.controller',[])
-.controller('city1Ctrl',function($scope,$ionicPlatform,$ionicHistory,API, service, $ionicLoading, $localstorage,$ionicPopup,$state){
+.controller('city1Ctrl',function($scope,$ionicPlatform,$ionicHistory,API, service, $ionicLoading, $localstorage,$ionicPopup,$state,FlightDataService,$timeout,$ionicModal){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
@@ -8,20 +8,37 @@ angular.module('city1.controller',[])
 			});
 			$ionicHistory.clearHistory();
 
-		$scope.countnm=$localstorage.get("country_nm");
-			console.log($scope.countnm);
-		$scope.state=$localstorage.get("Region");
-			console.log($scope.state);
+			$scope.countnm=$localstorage.get("country_nm");
+				console.log($scope.countnm);
+			$scope.state=$localstorage.get("Region");
+				console.log($scope.state);
 
+			$ionicModal.fromTemplateUrl('templates/city-model.html', {
+			    scope: $scope,
+			    animation: 'slide-in-up'
+			  }).then(function(modal) {
+			    $scope.modal = modal;
+			  });
+			  $scope.openModal = function() {
 
+			    $scope.modal.show();
+			  };
+			  $scope.closeModal = function() {
+			    $scope.modal.hide();
+			  };
+
+			  $scope.airlines=[];
 			$scope.loaddata= function(){
 				$ionicLoading.show();
 				var namesugg = API.getcityusingstate($scope.countnm,$scope.state);
 				service.Get(namesugg).then(function (data) {
 					console.log(namesugg);
 					if(data.d.OperationResult=="1" || data.d.OperationResult==1){
-						$scope.citylist = data.d.Strings;
-						console.log($scope.citylist);
+						$scope.citylist1 = data.d.Strings;
+						for(i=0; i<$scope.citylist1.length; i++){
+							$scope.airlines.push({'active':true, 'fs':$scope.citylist1[i] ,'iata':$scope.citylist1[i],'icao':$scope.citylist1[i],'name':$scope.citylist1[i]});
+						}
+						console.log($scope.airlines);
 						$ionicLoading.hide();
 					}else{
 					}
@@ -49,6 +66,34 @@ angular.module('city1.controller',[])
 				}
 				
 			}
+
+			airlines = $scope.airlines.sort(function(a, b) {
+				var airlineA = a.name.toLowerCase();
+				var airlineB = b.name.toLowerCase();
+
+				if(airlineA > airlineB) return 1;
+				if(airlineA < airlineB) return -1;
+				return 0;
+			});
+			console.log(airlines);
+		
+
+			$scope.data = { "airlines" : [], "search" : '' };
+
+		    $scope.search = function() {
+		    	FlightDataService.searchAirlines($scope.data.search).then(
+		    		function(matches) {
+		    			$scope.data.airlines = matches;
+		    			console.log($scope.data.airlines);
+		    		}
+		    	)
+	    	}
+
+
+		    $scope.setvalue=function(getvalue){
+		    	$scope.closeModal();
+		    	$scope.select.city=getvalue;
+		    }
 		
 		}catch(err){
 			console.log(err.message);

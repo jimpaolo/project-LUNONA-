@@ -307,12 +307,13 @@ margin-top: 70px !important;
    /* border: 4px solid #fff !important;*/
     height: 94px !important;
      background: #eacece !important; 
-    padding: 30px !important;
+   /* padding: 30px !important;*/
     float: left;
     margin: 14px !important;
     max-width: 26% !important;
     /* color: transparent; */
     min-width: 10% !important;
+    margin-left: 10px !important;
 }
 
 .box-circal {

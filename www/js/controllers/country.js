@@ -1,5 +1,5 @@
 angular.module('country.controller',[])
-.controller('countryCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicPopup,$ionicLoading,service,API,$state,$localstorage,FlightDataService,$q, $timeout,$ionicModal){
+.controller('countryCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicPopup,$ionicLoading,service,API,$state,$localstorage,FlightDataService,$timeout,$ionicModal){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
@@ -32,7 +32,6 @@ angular.module('country.controller',[])
 						for(var i=0 ; i< $scope.countrylist.length; i++){
 							$scope.airlines.push({'active':true, 'fs':$scope.countrylist[i] ,'iata':$scope.countrylist[i],'icao':$scope.countrylist[i],'name':$scope.countrylist[i]});
 						}
-						console.log($scope.airlines);
 					}else{
 					}
 					$ionicLoading.hide();
