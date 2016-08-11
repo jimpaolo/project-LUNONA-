@@ -61,6 +61,7 @@ angular.module('displayname.controller',[])
 
 			
 			$scope.Gonext=function(){
+				console.log($scope.name.nickname);
 				$localstorage.set("Nickname",$scope.name.nickname);
       		 	$state.go("country");
 			}
@@ -69,16 +70,18 @@ angular.module('displayname.controller',[])
 			// 	console.log($scope.choosename);
 
 
-			// $scope.loadnamesugget= function(){
-			// 	$ionicLoading.show();
-			// 	var namesugg = API.loginnamesuggestions($scope.name.nickname);
-			// 	service.Get(namesugg).then(function (data) {
-			// 		console.log(namesugg);
-			// 		$scope.getdata=data.d.DataValue;
-			// 		console.log($scope.getdata);
-			// 		$ionicLoading.hide();
-			// 	});	
-			// }
+			$scope.loadnamesugget= function(){
+				$ionicLoading.show();
+				var namesugg = API.loginnamesuggestions($scope.name.nickname);
+				service.Get(namesugg).then(function (data) {
+					console.log(namesugg);
+					// $scope.getdata=data.d.DataValue;
+					$scope.name.nickname=data.d.DataValue;
+					console.log($scope.name.nickname);
+					$ionicLoading.hide();
+				});	
+			}
+			$scope.loadnamesugget();
 
 			
 

@@ -6,32 +6,28 @@
  </ion-header-bar>
    
 <ion-content class="has-footer has-header" scroll="false" > 
-      <div class="martop70 " ui-sref="selectlaunguage" >
+
+      <div class="martop70 " >
         <h2 class=" text_white text_center  best-world" >{{"your_country" | translate}}</h2>
         <p class=" text_white text_center martop-13 fs-16 ">{{"Country_Where_you_are" | translate}}</p>
         </div>
 
-        <div class="card no_background martop50">
-        
-          <div>
-
-            <label class="item item-input item-select no_background border_bottom" >
+        <div class="card no_background martop50">        
+          <!-- <div>
+            <label class="item item-input no_background border_bottom" >
                 <div class="input-label no_background   text_white">
-                <!-- <img class="float_left " src="img/EN.png" width="20%">&nbsp; -->
-                  <!-- United Kingdom -->
                 </div>
                 <select class="dropdown100 no_background text_white" ng-model="select.getcountry">
                   <option class="text_black" value=""> {{"Select_Country" | translate}}</option>
-                  <option ng-repeat="post in countrylist " class="text_black" value="{{post}}"> {{post}}</option>
-                  
+                  <option ng-repeat="post in countrylist " class="text_black" value="{{post}}"> {{post}}</option>                  
                 </select>
+                <input class="text_white no_background" type="text " ng-model="select.getcountry" placeholder="{{'Select_Country' | translate}}" ng-click="openModal();">
               </label>
-
-
+          </div> -->
+          <div class="border_bottom no_background">
+            <input class="maxminwidth100 no_background text_white paddingleft10" type="text" ng-model="select.getcountry" placeholder="{{'Select_Country' | translate}}" ng-click="openModal();" readonly>
           </div>
-
-        </div>
-     
+        </div>     
 </ion-content>
 
 </ion-view>

@@ -15,12 +15,12 @@
             <i ng-if="getdata.OperationResult=='0'" class="icon ion-checkmark-circled"></i>
             <i ng-if="showerroe.OperationResult=='1'"  class="icon ion-close-circled"></i>
           </a>
+          <!-- <a class=" no_background  text_white marginleft5" ng-repeat="post in getdata track by $index"> {{post}}</a> -->
           <p ng-if="getdata.OperationResult=='0'" class="text_lightpurple fs-16 martop10">{{"Name_available" | translate}}</p>
           <p ng-if="showerroe.OperationResult=='1'"  class="text_lightpurple fs-16 martop10 text_assertive">{{"Name_not_available" | translate}}</p>
 
         
       </div>
-       <!-- <p class=" text_white" ng-repeat="post in getdata track by $index">{{post}}</p> -->
 
     </div>
   </ion-content>

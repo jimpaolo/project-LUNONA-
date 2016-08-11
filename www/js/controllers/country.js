@@ -1,5 +1,5 @@
 angular.module('country.controller',[])
-.controller('countryCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicPopup,$ionicLoading,service,API,$state,$localstorage){
+.controller('countryCtrl',function($scope,$ionicPlatform,$ionicHistory,$ionicPopup,$ionicLoading,service,API,$state,$localstorage,FlightDataService,$q, $timeout,$ionicModal){
 	$ionicPlatform.ready(function(){
 		try{ 
 			
@@ -8,6 +8,20 @@ angular.module('country.controller',[])
 			});
 			$ionicHistory.clearHistory();
 
+			$ionicModal.fromTemplateUrl('templates/country-model.html', {
+			    scope: $scope,
+			    animation: 'slide-in-up'
+			  }).then(function(modal) {
+			    $scope.modal = modal;
+			  });
+			  $scope.openModal = function() {
+
+			    $scope.modal.show();
+			  };
+			  $scope.closeModal = function() {
+			    $scope.modal.hide();
+			  };
+			  $scope.airlines = [];
 			$scope.loadcountry= function(){
 				$ionicLoading.show();
 				var namesugg = API.getcountries();
@@ -15,13 +29,17 @@ angular.module('country.controller',[])
 					console.log(namesugg);
 					if(data.d.OperationResult=="1" || data.d.OperationResult==1){
 						$scope.countrylist = data.d.Strings;
-						console.log($scope.countrylist);
+						for(var i=0 ; i< $scope.countrylist.length; i++){
+							$scope.airlines.push({'active':true, 'fs':$scope.countrylist[i] ,'iata':$scope.countrylist[i],'icao':$scope.countrylist[i],'name':$scope.countrylist[i]});
+						}
+						console.log($scope.airlines);
 					}else{
 					}
 					$ionicLoading.hide();
 				});	
 			}
 			$scope.loadcountry();
+			
 
 
 			$scope.select={};
@@ -46,6 +64,37 @@ angular.module('country.controller',[])
 				}
 				
 			}
+
+			airlines = $scope.airlines.sort(function(a, b) {
+				var airlineA = a.name.toLowerCase();
+				var airlineB = b.name.toLowerCase();
+
+				if(airlineA > airlineB) return 1;
+				if(airlineA < airlineB) return -1;
+				return 0;
+			});
+			console.log(airlines);
+		
+
+			$scope.data = { "airlines" : [], "search" : '' };
+
+			    $scope.search = function() {
+			    	FlightDataService.searchAirlines($scope.data.search).then(
+			    		function(matches) {
+			    			$scope.data.airlines = matches;
+			    			console.log($scope.data.airlines);
+			    		}
+			    	)
+		    	}
+
+
+		    $scope.setvalue=function(getvalue){
+		    	$scope.closeModal();
+		    	$scope.select.getcountry=getvalue;
+		    }
+
+
+
 		
 		}catch(err){
 			console.log(err.message);
