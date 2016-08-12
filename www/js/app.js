@@ -56,7 +56,7 @@ angular.module('Lunona', ['ionic','ngCordova','ion-pickers','ion-autocomplete','
         var deferred = $q.defer();
 
       var matches = airlines.filter( function(airline) {
-        if(airline.name.toLowerCase().indexOf(searchFilter.toLowerCase()) !== -1 ) return true;
+        if(airline.name.toLowerCase().indexOf(searchFilter.toLowerCase()) == 0 ) return true;
       })
 
         $timeout( function(){
