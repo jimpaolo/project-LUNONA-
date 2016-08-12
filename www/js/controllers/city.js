@@ -32,7 +32,6 @@ angular.module('city.controller',[])
 				$ionicLoading.show();
 				var namesugg = API.getcity($scope.countnm);
 				service.Get(namesugg).then(function (data) {
-					console.log(namesugg);
 					if(data.d.OperationResult=="1" || data.d.OperationResult==1){
 						$scope.citylist = data.d.Strings;
 						for (var i = 0; i <$scope.citylist.length; i++) {

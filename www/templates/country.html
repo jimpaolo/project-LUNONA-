@@ -12,22 +12,11 @@
         <p class=" text_white text_center martop-13 fs-16 ">{{"Country_Where_you_are" | translate}}</p>
         </div>
 
-        <div class="card no_background martop50">        
-          <!-- <div>
-            <label class="item item-input no_background border_bottom" >
-                <div class="input-label no_background   text_white">
-                </div>
-                <select class="dropdown100 no_background text_white" ng-model="select.getcountry">
-                  <option class="text_black" value=""> {{"Select_Country" | translate}}</option>
-                  <option ng-repeat="post in countrylist " class="text_black" value="{{post}}"> {{post}}</option>                  
-                </select>
-                <input class="text_white no_background" type="text " ng-model="select.getcountry" placeholder="{{'Select_Country' | translate}}" ng-click="openModal();">
-              </label>
-          </div> -->
+        <div class="card no_background martop50">
           <div class="border_bottom no_background">
             <input class="maxminwidth100 no_background text_white paddingleft10" type="text" ng-model="select.getcountry" placeholder="{{'Select_Country' | translate}}" ng-click="openModal();" readonly>
           </div>
-        </div>     
+        </div>    
 </ion-content>
 
 </ion-view>
@@ -37,9 +26,3 @@
         <i class="icon ion-android-arrow-forward float_right"></i>
       </button>
 </div>
-<!-- <div class="bar bar-footer no_background">
- <button class="button button-full button-light martop30" ui-sref="password">
-       Login
-        <i class="icon ion-android-arrow-forward float_right"></i>
-      </button>
-</div> -->

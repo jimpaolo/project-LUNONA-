@@ -21,7 +21,8 @@ angular.module('country.controller',[])
 			  $scope.closeModal = function() {
 			    $scope.modal.hide();
 			  };
-			  $scope.airlines = [];
+
+			  $scope.airlines=[];
 			$scope.loadcountry= function(){
 				$ionicLoading.show();
 				var namesugg = API.getcountries();
@@ -91,6 +92,35 @@ angular.module('country.controller',[])
 		    	$scope.closeModal();
 		    	$scope.select.getcountry=getvalue;
 		    }
+
+		 
+
+  			// $scope.model = "";
+     //        $scope.clickedValueModel = "";
+     //        $scope.removedValueModel = "";
+
+     //        $scope.getTestItems = function (query) {
+     //            if (query) {
+     //                return {
+     //                    items: [
+     //                        { name: query + "shubham", view: "shubham: " + query + "1"},
+     //                        { name: query + "vishwakarma", view: "vishwakarma: " + query + "2"},
+     //                        { name: query + "ojha", view: "ojha: " + query + "3"},
+     //                        {id: "4", name: query + "vvvvv", view: "vvvvvvv: " + query + "4"},
+     //                        {id: "5", name: query + "nnnnnn", view: "nnnnnn: " + query + "5"},
+     //                        {id: "6", name: query + "mmmmmm", view: "mmmmmmm: " + query + "6"},]
+                        
+     //                };
+     //            }
+     //            return {items: []};
+     //        };
+
+     //        $scope.itemsClicked = function (callback) {
+     //            $scope.clickedValueModel = callback;
+     //        };
+     //        $scope.itemsRemoved = function (callback) {
+     //            $scope.removedValueModel = callback;
+     //        };
 
 
 

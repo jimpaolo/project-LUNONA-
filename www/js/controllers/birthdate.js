@@ -114,9 +114,9 @@ angular.module('birthdate.controller',[])
 			// };
 
 			$scope.data={};
-			$scope.data.date="";
-			$scope.data.month="";
-			$scope.data.year="";
+			$scope.data.date="1";
+			$scope.data.month="1";
+			$scope.data.year="1998";
 
 			$scope.Gonext=function(){
 				var date=$scope.data.date;
